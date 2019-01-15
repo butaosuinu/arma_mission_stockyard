@@ -1,0 +1,22 @@
+
+test:
+    driver: mymysql
+    open: user=root dbname=arma sslmode=disable
+
+development:
+    driver: mymysql
+    open: tcp:localhost:3306*arma/root/password
+    
+production:
+    driver: mymysql
+    open: user=liam dbname=arma sslmode=verify-full
+
+customimport:
+    driver: customdriver
+    open: customdriver open
+    import: github.com/custom/driver
+    dialect: mysql
+
+environment_variable_config:
+    driver: $DB_DRIVER
+    open: $DATABASE_URL
